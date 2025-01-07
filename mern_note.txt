@@ -672,6 +672,9 @@
                                -useEffect(callback function, dependency): used to apply side effects to a functional component. We can pass side effects as its first argument as a call back function, we can also pass an optional dependency argument to decide when to apply side effects in component
                                -useRef(initial value): is a react hook that lets you referance  a value that's not needed for rendering. Initial value is optional, it returns an object "current" key
                          -Custom Hooks: create JS file to define a specific function for a special task, export the function from that file, function name must start with 'use' keyword  
+                         -useSelector(): hook used to select state from a redux store
+                         -useDispatch(): hook used to dispatch action from component
+                         -useParams(): hooks will return dynamic value of route associated with a component
 13. Form handling in react: 2 different ways to manage data inside the form by a component-
                           -Controlled components: are components which store form data inside its own state 
                           -Uncontrolled components: components who access form data using its DOM elements reference       
@@ -733,7 +736,12 @@
         - createAction(): used to action where we can define logic to update state, output of action automatically return to its reducer.
         - createSlice(): used to combine action and reducer in a single file.
            -steps to use slice for react app 
-               - create a js file for defining slice   
+               - create a js file for defining slice  
+        - createAsyncThunk(): used to make asynchronous call in an action in redux. It accepts 2 arguments, first action type string("slice-name/action-name') , 2nd argument is a callback function it can return a promise. Its output can be 3 type:
+                              -Pending state
+                              -Fulfilled state
+                              -reject state
+          "ExtraReducers" in slice can handle promise return action. Because it has define different cases to update slice state, based on promise output                    
 4. Hooks used in component for managing state using redux:
         - useSelector(state=>state.reducer_name): used to select state from store in a component 
         - useDispatch(): used to execute an action from a component that hook will return a function that is capable of dispatching an action as its argument when we call the function
